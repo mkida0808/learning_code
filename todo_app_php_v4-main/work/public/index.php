@@ -3,6 +3,16 @@
 require('../app/mysql_info.php');
 require('../app/exception.php');
 
+function getTodos($pdo) {
+  $stmt = $pdo->query("select * from todos order by id desc");
+  $todos = $stmt->fetchAll();
+  return $todos;
+}
+
+$todos = getTodos($pdo);
+var_dump($todos);
+exit;
+
 ?>
 
 <!DOCTYPE html>

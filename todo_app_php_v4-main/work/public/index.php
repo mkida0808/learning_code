@@ -1,3 +1,8 @@
+<?php
+require('../app/mysql_info.php');
+require('../app/exception.php');
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>

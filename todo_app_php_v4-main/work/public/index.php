@@ -1,6 +1,9 @@
 <?php
 
+// MySQL account information
 require('../app/mysql_info.php');
+
+// exception handling
 require('../app/exception.php');
 
 function getTodos($pdo) {
@@ -10,8 +13,8 @@ function getTodos($pdo) {
 }
 
 $todos = getTodos($pdo);
-var_dump($todos);
-exit;
+// var_dump($todos);
+// exit;
 
 ?>
 
@@ -25,6 +28,12 @@ exit;
 <body>
   <h1>Todos</h1>
   <ul>
+    <?php foreach ($todos as $todo): ?>
+    <li>
+      <input type="checkbox" <?= $todo->is_done ? 'checked' : ''; ?>>
+      <span>Title</span>
+    </li>
+    <?php endforeach; ?>
     <li>
       <input type="checkbox">
       <span>Title</span>
